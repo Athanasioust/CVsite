@@ -76,5 +76,5 @@ navLinksEl.querySelectorAll('a').forEach(function(link) {
 
 // ─── Init ────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function() {
-  typeWriter('typed-name', 'Stylianos (Stelios) Athanasiou', 65);
+  typeWriter('typed-name', 'Stelios Athanasiou', 65);
 });
