@@ -1,26 +1,3 @@
-// ─── Typed name effect ───────────────────────────────────────────────────────
-function typeWriter(elementId, text, speed) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-
-  let i = 0;
-  const cursor = document.createElement('span');
-  cursor.className = 'cursor';
-  el.after(cursor);
-
-  function tick() {
-    if (i < text.length) {
-      el.textContent += text[i];
-      i++;
-      setTimeout(tick, speed);
-    } else {
-      cursor.classList.add('blink');
-    }
-  }
-
-  setTimeout(tick, 500);
-}
-
 // ─── Scroll animations ───────────────────────────────────────────────────────
 const animObserver = new IntersectionObserver(
   function(entries) {
@@ -72,9 +49,4 @@ navLinksEl.querySelectorAll('a').forEach(function(link) {
     hamburger.classList.remove('open');
     navLinksEl.classList.remove('open');
   });
-});
-
-// ─── Init ────────────────────────────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function() {
-  typeWriter('typed-name', 'Stelios Athanasiou', 65);
 });
