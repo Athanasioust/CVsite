@@ -39,14 +39,24 @@ window.addEventListener('scroll', function() {
 var hamburger   = document.getElementById('hamburger');
 var navLinksEl  = document.getElementById('nav-links');
 
+function setMenu(open) {
+  hamburger.classList.toggle('open', open);
+  navLinksEl.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', String(open));
+}
+
 hamburger.addEventListener('click', function() {
-  hamburger.classList.toggle('open');
-  navLinksEl.classList.toggle('open');
+  setMenu(!navLinksEl.classList.contains('open'));
 });
 
 navLinksEl.querySelectorAll('a').forEach(function(link) {
-  link.addEventListener('click', function() {
-    hamburger.classList.remove('open');
-    navLinksEl.classList.remove('open');
-  });
+  link.addEventListener('click', function() { setMenu(false); });
+});
+
+// Close the mobile menu on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && navLinksEl.classList.contains('open')) {
+    setMenu(false);
+    hamburger.focus();
+  }
 });
