@@ -591,6 +591,21 @@ body { counter-reset: section; }
 .project-link:hover { color: var(--rust-bright); }
 .project-link:hover svg { color: var(--rust-bright); }
 
+/* Row holding multiple links: owns the divider/spacing so each link doesn't */
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--wood);
+}
+.project-links .project-link {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 /* =================================================================
    13. Tags & chips
    ================================================================= */
