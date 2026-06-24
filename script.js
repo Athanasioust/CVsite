@@ -29,6 +29,12 @@ window.addEventListener('scroll', function() {
     }
   });
 
+  // Bottom of page: the last section (Contact) is too short to ever scroll
+  // under the navbar, so its threshold is unreachable — force it active here.
+  if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 2) {
+    current = sections[sections.length - 1].getAttribute('id');
+  }
+
   navLinks.forEach(function(link) {
     var active = link.getAttribute('href') === '#' + current;
     link.classList.toggle('active', active);
